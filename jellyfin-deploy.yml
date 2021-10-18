@@ -1,0 +1,67 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: jellyfin
+  labels:
+    app: jellyfin
+    part-of: jellyfin
+  annotations:
+    keel.sh/policy: force
+    keel.sh/trigger: poll 
+    keel.sh/pollSchedule: "@hourly"
+    keel.sh/match-tag: true
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jellyfin
+      part-of: jellyfin
+  template:
+    metadata:
+      labels:
+        app: jellyfin
+        part-of: jellyfin
+    spec:
+      containers:
+      - name: jellyfin
+        image: ghcr.io/linuxserver/jellyfin:latest
+        ports:
+        - name: jellyfin
+          containerPort: 8096
+        resources:
+          limits:
+            gpu.intel.com/i915: 1
+        env:
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: TZ
+          value: "Europe/Paris"
+        volumeMounts:
+        - name: jellyfin
+          mountPath: /config
+        - name: movies
+          mountPath: /data/movies
+        - name: series
+          mountPath: /data/series
+        - name: animes
+          mountPath: /data/animes
+        - name: musics
+          mountPath: /data/musics
+      volumes:
+      - name: jellyfin
+        persistentVolumeClaim:
+          claimName: jellyfin
+      - name: movies
+        persistentVolumeClaim:
+          claimName: movies
+      - name: series
+        persistentVolumeClaim:
+          claimName: series
+      - name: animes
+        persistentVolumeClaim:
+          claimName: animes
+      - name: musics
+        persistentVolumeClaim:
+          claimName: musics
