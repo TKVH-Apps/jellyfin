@@ -33,6 +33,9 @@ spec:
         resources:
           limits:
             gpu.intel.com/i915: 2
+            memory: 1Gi
+          requests:
+            memory: 512Mi
         env:
         - name: PUID
           value: "1000"
@@ -61,11 +64,6 @@ spec:
           mountPath: /data/animes
         - name: musics
           mountPath: /data/musics
-        resources:
-          limits:
-            memory: 1Gi
-          requests:
-            memory: 512Mi
       volumes:
       - name: jellyfin
         persistentVolumeClaim:
