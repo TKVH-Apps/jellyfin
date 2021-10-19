@@ -38,6 +38,16 @@ spec:
           value: "1000"
         - name: TZ
           value: "Europe/Paris"
+        readinessProbe:
+          tcpSocket:
+            port: jellyfin
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: jellyfin
+          initialDelaySeconds: 15
+          periodSeconds: 20
         volumeMounts:
         - name: jellyfin
           mountPath: /config
