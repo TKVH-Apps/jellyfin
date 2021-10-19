@@ -16,6 +16,8 @@ spec:
     matchLabels:
       app: jellyfin
       part-of: jellyfin
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
