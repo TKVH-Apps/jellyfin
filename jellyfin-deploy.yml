@@ -32,10 +32,10 @@ spec:
           containerPort: 8096
         resources:
           limits:
-            gpu.intel.com/i915: 2
-            memory: 1Gi
-          requests:
+            gpu.intel.com/i915: 1
             memory: 512Mi
+          requests:
+            memory: 256Mi
         env:
         - name: PUID
           value: "1000"
