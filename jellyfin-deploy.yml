@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: jellyfin
-        image: lscr.io/linuxserver/jellyfin:2021.10.28
+        image: lscr.io/linuxserver/jellyfin:latest
         ports:
         - name: jellyfin
           containerPort: 8096
