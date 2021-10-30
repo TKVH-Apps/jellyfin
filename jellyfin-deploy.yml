@@ -44,12 +44,14 @@ spec:
         - name: TZ
           value: "Europe/Paris"
         readinessProbe:
-          tcpSocket:
+          httpGet:
+            path: /health
             port: jellyfin
           initialDelaySeconds: 5
           periodSeconds: 10
         livenessProbe:
-          tcpSocket:
+          httpGet:
+            path: /health
             port: jellyfin
           initialDelaySeconds: 15
           periodSeconds: 20
