@@ -66,6 +66,8 @@ spec:
           mountPath: /data/animes
         - name: musics
           mountPath: /data/musics
+        - name: books
+          mountPath: /data/books
       volumes:
       - name: jellyfin
         persistentVolumeClaim:
@@ -82,3 +84,6 @@ spec:
       - name: musics
         persistentVolumeClaim:
           claimName: musics
+      - name: books
+        persistentVolumeClaim:
+          claimName: books
