@@ -6,3 +6,4 @@ resources:
   - jellyfin-svc.yml
   - jellyfin-ing.yml
   - jellyfin-pvc.yml
+  - jellyfin-ns.yml
