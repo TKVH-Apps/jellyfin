@@ -45,7 +45,7 @@ spec:
             gpu.intel.com/i915: 1
             memory: 512Mi
           requests:
-            memory: 256Mi
+            memory: 400Mi
         env:
         - name: PUID
           value: "1000"
