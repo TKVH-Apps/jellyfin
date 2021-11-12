@@ -24,6 +24,16 @@ spec:
         app: jellyfin
         part-of: jellyfin
     spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              matchExpressions:
+              - key: disktype
+                operator: In
+                values:
+                - ssd
       containers:
       - name: jellyfin
         image: lscr.io/linuxserver/jellyfin:latest
