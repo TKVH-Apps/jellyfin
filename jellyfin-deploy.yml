@@ -38,9 +38,9 @@ spec:
         resources:
           limits:
             gpu.intel.com/i915: 1
-            memory: 700Mi
+            memory: 900Mi
           requests:
-            memory: 600Mi
+            memory: 800Mi
         env:
         - name: PUID
           value: "1000"
