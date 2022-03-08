@@ -31,7 +31,7 @@ spec:
                 - ssd
       containers:
       - name: jellyfin
-        image: lscr.io/linuxserver/jellyfin:nightly-version-20220204.5-unstable
+        image: lscr.io/linuxserver/jellyfin:nightly-version-20220308.3-unstable
         ports:
         - name: jellyfin
           containerPort: 8096
