@@ -16,7 +16,7 @@ kind: Service
 metadata:
   name: jellyfin-dlna
   annotations:
-    metallb.universe.tf/allow-shared-ip: "jellyfin"
+    metallb.universe.tf/allow-shared-ip: "gate"
 spec:
   type: LoadBalancer
   loadBalancerIP: 192.168.1.61
