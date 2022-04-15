@@ -10,3 +10,25 @@ spec:
   selector:
     app: jellyfin
     part-of: jellyfin
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jellyfin-dlna
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "sharing key"
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 192.168.1.61
+  selector:
+    app: jellyfin
+    part-of: jellyfin
+  ports:
+    - name: jellyfin-dlna-service
+      port: 1900
+      targetPort: jellyfin-dlna-service
+      protocol: UDP
+    - name: jellyfin-dlna-client
+      port: 7359
+      protocol: UDP
+  allocateLoadBalancerNodePorts: false
