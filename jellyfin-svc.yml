@@ -28,7 +28,8 @@ spec:
       port: 1900
       targetPort: dlna-service
       protocol: UDP
-    - name: jellyfin-dlna-client
+    - name: dlna-client
       port: 7359
       protocol: UDP
+      targetPort: dlna-client
   allocateLoadBalancerNodePorts: false
