@@ -35,10 +35,10 @@ spec:
         ports:
         - name: jellyfin
           containerPort: 8096
-        - name: jellyfin-dlna-service
+        - name: dlna-service
           containerPort: 1900
           protocol: UDP
-        - name: jellyfin-dlna-client
+        - name: dlna-client
           containerPort: 7359
           protocol: UDP
         resources:
