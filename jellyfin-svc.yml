@@ -14,12 +14,31 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: jellyfin-dlna
+  name: jellyfin-internal
   annotations:
-    metallb.universe.tf/allow-shared-ip: "gate"
+    metallb.universe.tf/allow-shared-ip: "jellyfin"
 spec:
   type: LoadBalancer
-  loadBalancerIP: 192.168.1.50
+  loadBalancerIP: 192.168.1.61
+  selector:
+    app: jellyfin
+    part-of: jellyfin
+  ports:
+    - name: jellyfin
+      port: 8096
+      targetPort: jellyfin
+      protocol: TCP
+  allocateLoadBalancerNodePorts: false
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jellyfin-dlna
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "jellyfin"
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 192.168.1.61
   selector:
     app: jellyfin
     part-of: jellyfin
