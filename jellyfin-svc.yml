@@ -24,9 +24,9 @@ spec:
     app: jellyfin
     part-of: jellyfin
   ports:
-    - name: jellyfin-dlna-service
+    - name: dlna-service
       port: 1900
-      targetPort: jellyfin-dlna-service
+      targetPort: dlna-service
       protocol: UDP
     - name: jellyfin-dlna-client
       port: 7359
