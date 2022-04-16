@@ -29,6 +29,7 @@ spec:
                 operator: In
                 values:
                 - ssd
+      hostNetwork: true
       containers:
       - name: jellyfin
         image: lscr.io/linuxserver/jellyfin:nightly-version-20220317.2-unstable
