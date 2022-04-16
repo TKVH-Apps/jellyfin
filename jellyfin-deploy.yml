@@ -32,7 +32,7 @@ spec:
       hostNetwork: true
       containers:
       - name: jellyfin
-        image: lscr.io/linuxserver/jellyfin:nightly-version-20220317.2-unstable
+        image: lscr.io/linuxserver/jellyfin:nightly-version-20220415.12-unstable
         ports:
         - name: jellyfin
           containerPort: 8096
