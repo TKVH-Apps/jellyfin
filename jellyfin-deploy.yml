@@ -30,6 +30,7 @@ spec:
                 values:
                 - ssd
       hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       containers:
       - name: jellyfin
         image: lscr.io/linuxserver/jellyfin:nightly-version-20220415.12-unstable
