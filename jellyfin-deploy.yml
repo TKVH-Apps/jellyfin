@@ -76,6 +76,8 @@ spec:
           mountPath: /config
         - name: movies
           mountPath: /data/movies
+        - name: movies4k
+          mountPath: /data/movies4k
         - name: series
           mountPath: /data/series
         - name: animes
@@ -91,6 +93,9 @@ spec:
       - name: movies
         persistentVolumeClaim:
           claimName: movies
+      - name: movies4k
+        persistentVolumeClaim:
+          claimName: movies4k
       - name: series
         persistentVolumeClaim:
           claimName: series
