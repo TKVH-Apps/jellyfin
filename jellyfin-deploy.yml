@@ -63,13 +63,13 @@ spec:
           httpGet:
             path: /health
             port: jellyfin
-          initialDelaySeconds: 125
+          initialDelaySeconds: 15
           periodSeconds: 10
         livenessProbe:
           httpGet:
             path: /health
             port: jellyfin
-          initialDelaySeconds: 105
+          initialDelaySeconds: 10
           periodSeconds: 20
         volumeMounts:
         - name: jellyfin
