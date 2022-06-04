@@ -37,15 +37,15 @@ spec:
         ports:
         - name: jellyfin
           containerPort: 8096
-          hostPort: 8096
+          #hostPort: 8096
         - name: dlna-service
           containerPort: 1900
           protocol: UDP
-          hostPort: 1900
+          #hostPort: 1900
         - name: dlna-client
           containerPort: 7359
           protocol: UDP
-          hostPort: 7359
+          #hostPort: 7359
         resources:
           limits:
             gpu.intel.com/i915: 1
@@ -59,18 +59,18 @@ spec:
           value: "1000"
         - name: TZ
           value: "Europe/Paris"
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: jellyfin
-          initialDelaySeconds: 15
-          periodSeconds: 10
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: jellyfin
-          initialDelaySeconds: 10
-          periodSeconds: 20
+        #readinessProbe:
+          #httpGet:
+            #path: /health
+            #port: jellyfin
+          #initialDelaySeconds: 15
+          #periodSeconds: 10
+        #livenessProbe:
+          #httpGet:
+            #path: /health
+            #port: jellyfin
+          #initialDelaySeconds: 10
+          #periodSeconds: 20
         volumeMounts:
         - name: jellyfin
           mountPath: /config
