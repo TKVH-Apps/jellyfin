@@ -33,7 +33,7 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
       - name: jellyfin
-        image: lscr.io/linuxserver/jellyfin:10.8.4
+        image: lscr.io/linuxserver/jellyfin:10.8.5
         ports:
         - name: jellyfin
           containerPort: 8096
