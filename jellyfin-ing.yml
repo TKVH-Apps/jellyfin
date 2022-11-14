@@ -5,7 +5,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /
+#    nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
     nginx.ingress.kubernetes.io/proxy-buffering: "off"
@@ -15,6 +15,20 @@ spec:
   - host: media.<path:apps-kv/data/general#DN>
     http:
       paths:
+      - path: /feed/calendar/Sonarr.ics
+        pathType: Prefix
+        backend:
+          service:
+            name: sonarr
+            port:
+              number: 8989
+      - path: /feed/v3/calendar/Radarr.ics
+        pathType: Prefix
+        backend:
+          service:
+            name: radarr
+            port:
+              number: 7878
       - path: /
         pathType: Prefix
         backend:
